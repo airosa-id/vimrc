@@ -1,0 +1,67 @@
+set nocompatible
+colorscheme desert
+
+" Язык помощи
+set helplang=ru
+
+" Включить подсветку синтаксиса
+syntax on
+
+"Включение автоматического перечтения файла при изменении
+set autoread
+
+" Автоматически устанавливать текущей, директорию отрытого файла
+set autochdir
+
+" История команд
+set history=150
+
+" Максимальное количество изменений, которые могут быть отменены
+set undolevels=5000
+
+" Показывать номера в начале строки
+set number
+" Автоотступ
+set autoindent
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+
+" Сворачивание блоков по отсупам
+set foldenable
+set foldmethod=syntax
+set foldcolumn=3
+
+ hi User1 guibg=Black guifg=Green ctermbg=Black ctermfg=Green
+ hi User2 guibg=Black guifg=DarkGreen ctermbg=Black ctermfg=DarkGreen
+ hi User3 guibg=Black guifg=red ctermbg=Black ctermfg=red
+ hi LineNr guifg=grey ctermfg=grey
+ 
+" Last status
+set noruler
+set laststatus=2 " always show the status line
+set statusline=%1*%F%*       "tail of the filename
+set statusline+=%2*\ \ [%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}]%* "file format
+set statusline+=%3*\ %h%*      "help file flag
+set statusline+=%3*\ %m%*      "modified flag
+set statusline+=%3*\ %r%*      "read only flag
+set statusline+=\ %=\ col:%4*%c%*,     "cursor column
+set statusline+=\ row:%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
+
+" Сохранение
+imap <F2>   <ESC> :w<CR>
+map <F2>    :w<CR>
+
+" Просмотр структуры директории
+imap <F4>    <ESC> :Texplore<CR>
+map <F4>    <ESC> :Texplore<CR>
+
+
+"set wildmenu
+"set smarttab
+"Включаем 256 цветов в терминале, мы ведь работаем из иксов?
+"Нужно во многих терминалах, например в gnome-terminal
+"set t_Co=256
